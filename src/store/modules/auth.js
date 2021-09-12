@@ -20,7 +20,7 @@ export default{
 				params:params
 			};
 			
-			let api = domain+'/backend/details'
+			let api = '/backend/details'
 			
 			return new Promise((resolve, reject) => {
 			
