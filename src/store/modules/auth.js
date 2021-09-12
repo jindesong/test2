@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {domain} from './common.js'
 export default{
 	
 	state:{
@@ -19,7 +20,7 @@ export default{
 				params:params
 			};
 			
-			let api = '/backend/details'
+			let api = domain+'/backend/details'
 			
 			return new Promise((resolve, reject) => {
 			
