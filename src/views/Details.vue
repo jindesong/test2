@@ -1,5 +1,5 @@
 <template>
-	<el-card body-style="padding:0" class="detail-main">
+	<el-card v-loading="loading" body-style="padding:0" class="detail-main">
 		<div class="header">
 			<el-page-header class="pageheader" @back="goBack">
 			</el-page-header>
@@ -22,6 +22,7 @@
 		},
 		data() {
 			return {
+				loading: false,
 				content: '',
 				options: {
 					markdownIt: {
@@ -41,10 +42,12 @@
 			let params = {}
 			params.type = this.$route.query.type
 			params.id = this.$route.query.id
+			this.loading = true
 			this.GetHtml(params).then((res)=>{
 				this.content = res.data
+				this.loading = false
 			}).catch(()=>{
-				
+				this.loading = false
 			})
 			
 		},

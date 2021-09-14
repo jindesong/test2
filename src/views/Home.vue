@@ -1,8 +1,8 @@
 <template>
 	<div class="home">
 		<div class="header">
-			<img src="../assets/logo.png" class="profile">
-			<font class="title">Coding makes life better</font>
+			<img src="../assets/myprofile.jpeg" class="profile">
+			<font class="title">人总要有梦想的，万一实现了呢</font>
 
 			<el-menu class="menu" :default-active="activeIndex" @select="handleSelect" mode="horizontal">
 				<el-menu-item index="1">Android开发</el-menu-item>
@@ -15,9 +15,9 @@
 		<div class="bottom-container">
 			<div class="bottom">
 
-				<el-card class="left" body-style="padding:0">
+				<!-- <el-card class="left" body-style="padding:0">
 					<div class="rowdiv">
-						<span class="left-des">职业：大前端工程师</span>
+						<span class="left-des">职业：移动端&Web</span>
 					</div>
 					<div class="rowdiv">
 						<span class="left-des">地点：北京</span>
@@ -35,7 +35,7 @@
 					</div>
 
 					<my-chart class="mychart"></my-chart>
-				</el-card>
+				</el-card> -->
 
 				<div class="right">
 					<keep-alive :include="cached">
@@ -51,16 +51,16 @@
 
 <script>
 	// @ is an alias to /src
-	import MyChart from '../components/MyEchart.vue'
+	//import MyChart from '../components/MyEchart.vue'
 	export default {
 		data() {
 			return {
 				activeIndex: "1",
-				cached: "android,ios,web,data,server"
+				cached: "android,ios,web"
 			}
 		},
 		components: {
-			MyChart,
+			//MyChart,
 		},
 		methods: {
 
@@ -114,6 +114,8 @@
 	.home {
 		
 		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.header {
@@ -127,7 +129,7 @@
 	}
 
 	.profile {
-		
+		object-fit: cover;
 		border-radius: 50%;
 		width: 100px;
 		height: 100px;
@@ -136,11 +138,13 @@
 	.title {
 		margin-left: 50px;
 		font-size: 16px;
+		font-family: Averta Regular Italic;
 	}
 	.bottom-container{
 		background-color: #f5f5f5;
 		width: 100%;
 		height: 100%;
+		flex-grow: 1;
 	}
 	.bottom {
 		margin-right: auto;
@@ -157,13 +161,13 @@
 		position: absolute;
 	}
 
-	.left {
+	/* .left {
 
 		margin-top: 20px;
 		width: 300px;
 		height: 500px;
 	}
-
+ */
 	.rowdiv {
 		margin: 20px;
 	}
@@ -174,10 +178,13 @@
 	}
 
 	.right {
-		margin-left: 20px;
+		/* margin-left: 20px;
 		margin-top: 20px;
-		width: 980px;
+		width: 980px; */
+		margin-top: 20px;
+		width: 100%;
 		height: 100%;
+		
 	}
 
 	.tag {

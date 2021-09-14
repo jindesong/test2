@@ -1,6 +1,8 @@
 <template>
 	<div class="ios-main">
-		<div class="blog-item" v-for="(item,index) in blogs" :key="index">
+		<transition-group name="more" v-bind:css="false" @before-enter="beforeEnter" @enter="enter"
+			@after-enter="afterenter">
+		<div class="blog-item" v-bind:data-index="index" v-show="showAnim" v-for="(item,index) in blogs" :key="item.id">
 			<el-card class="card">
 				<div class="card-div" @click="onClick(item)">
 					<div class="title-div">
@@ -12,16 +14,18 @@
 				</div>
 			</el-card>
 		</div>
+		</transition-group>
+		<el-backtop></el-backtop>
 	</div>
 	
 </template>
 
 <script>
 	export default{
-		
+		name: 'ios',	
 		data(){
 			return {
-				
+				showAnim: false,
 				blogs: [
 					
 					{
@@ -41,7 +45,31 @@
 				let path = '/details/'+item.id+'?type='+item.type
 				this.$router.push(path)
 				
-			}
+			},
+			beforeEnter(el) {
+				el.style.opacity = 0
+			},
+			enter(el, done) {
+				//console.log(el.dataset.index)
+			
+				let delay = el.dataset.index * 200
+				//console.log(delay)
+				setTimeout(() => {
+					el.style.opacity = 0
+					el.classList.add('slidegroup-enter-class')
+					done()
+				}, delay)
+			},
+			afterenter(el) {
+				el.addEventListener('animationend', () => {
+					el.classList.remove('slidegroup-enter-class');
+					el.style.opacity = 1
+				})
+				console.log("after enter")
+			},
+		},
+		mounted() {
+			this.showAnim = true
 		}
 		
 	}
@@ -78,6 +106,34 @@
 	.details-div #details{
 		
 		font-size: 14px;
+	}
+	.slidegroup-enter-class {
+	
+		-webkit-animation-name: fadeInOut;
+		-webkit-animation-timing-function: ease-in-out;
+		/* -webkit-animation-iteration-count: infinite; */
+		-webkit-animation-duration: 1s;
+		-webkit-animation-direction: alternate;
+	}
+	
+	@keyframes fadeInOut {
+		0% {
+			/* padding-bottom: 100%; */
+			opacity: 0;
+		}
+	
+		50% {
+			opacity: 0.5;
+		}
+	
+		75 {
+			opacity: 0.75;
+		}
+	
+		100% {
+			/* padding-bottom: 0%; */
+			opacity: 1;
+		}
 	}
 	
 </style>
