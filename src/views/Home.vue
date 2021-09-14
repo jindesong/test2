@@ -2,7 +2,10 @@
 	<div class="home">
 		<div class="header">
 			<img src="../assets/myprofile.jpeg" class="profile">
-			<font class="title">人总要有梦想的，万一实现了呢</font>
+			<div class="sign">
+				<font class="title">人总要有梦想的，万一实现了呢</font>
+			</div>
+
 
 			<el-menu class="menu" :default-active="activeIndex" @select="handleSelect" mode="horizontal">
 				<el-menu-item index="1">Android开发</el-menu-item>
@@ -97,7 +100,7 @@
 						this.activeIndex = "2"
 					} else if (to.path === "/web") {
 						this.activeIndex = "3"
-					} 
+					}
 					//每次跳转都返回顶部
 					document.body.scrollTop = 0
 					document.documentElement.scrollTop = 0
@@ -112,7 +115,7 @@
 
 <style scoped>
 	.home {
-		
+
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
@@ -135,17 +138,77 @@
 		height: 100px;
 	}
 
-	.title {
+	.sign {
+		position: relative;
+		padding: 20px 10px;
 		margin-left: 50px;
+
+		transition: all .3s;
+	}
+
+
+	.sign:active {
+		filter: contrast(0.9);
+	}
+
+	.sign::before,
+	.sign::after {
+		content: "";
+		position: absolute;
+		top: -10px;
+		left: -10px;
+		right: -10px;
+		bottom: -10px;
+		border: 2px solid black;
+		transition: all 2s;
+		animation: clippath 3s infinite linear;
+		border-radius: 10px;
+	}
+
+	.sign::after {
+		animation: clippath 3s infinite -1.5s linear;
+	}
+
+	@keyframes clippath {
+
+		0%,
+		100% {
+			clip-path: inset(0 0 98% 0);
+		}
+
+		25% {
+			clip-path: inset(0 98% 0 0);
+		}
+
+		50% {
+			clip-path: inset(98% 0 0 0);
+		}
+
+		75% {
+			clip-path: inset(0 0 0 98%);
+		}
+	}
+
+
+	.title {
+
 		font-size: 16px;
 		font-family: Averta Regular Italic;
 	}
-	.bottom-container{
+
+
+	/deep/ .el-menu-item.is-active {
+		border-bottom: 2px solid #000000;
+
+	}
+
+	.bottom-container {
 		background-color: #f5f5f5;
 		width: 100%;
 		height: 100%;
 		flex-grow: 1;
 	}
+
 	.bottom {
 		margin-right: auto;
 		margin-left: auto;
@@ -184,7 +247,7 @@
 		margin-top: 20px;
 		width: 100%;
 		height: 100%;
-		
+
 	}
 
 	.tag {
