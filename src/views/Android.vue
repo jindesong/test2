@@ -64,6 +64,12 @@
 						id: "5",
 						type: 'android',
 					},
+					{
+						title: "apk打包流程",
+						details: "aapt将除了asset和res/raw以外的资源文件编译成resources.arsc,同时生成R.java,用于资源文件的映射。然后java编译器将R.java,源码以及intefaces打包成.class文件......",
+						id: "6",
+						type: 'android',
+					},
 
 				]
 
@@ -116,63 +122,126 @@
 </script>
 
 <style scoped>
-	.blog-item {}
-
-	.android-main {
-		padding-bottom: 50px;
-	}
-
-	.card {
-		cursor: pointer;
-		margin-left: 20px;
-		margin-right: 20px;
-		margin-bottom: 20px;
-		height: 160px;
-	}
-
-	.card-div {}
-
-	.title-div {
-		font-size: 20px;
-	}
-
-	.title-div #title {}
-
-	.details-div {
-		margin-top: 20px;
-	}
-
-	.details-div #details {
-
-		font-size: 14px;
-	}
-
-	.slidegroup-enter-class {
-
-		-webkit-animation-name: fadeInOut;
-		-webkit-animation-timing-function: ease-in-out;
-		/* -webkit-animation-iteration-count: infinite; */
-		-webkit-animation-duration: 1s;
-		-webkit-animation-direction: alternate;
-	}
-
-	@keyframes fadeInOut {
-		0% {
-			/* padding-bottom: 100%; */
-			opacity: 0;
+	@media(min-width:640px){
+		.blog-item {}
+		
+		.android-main {
+			padding-bottom: 50px;
 		}
-
-		50% {
-			opacity: 0.5;
+		
+		.card {
+			cursor: pointer;
+			margin-left: 20px;
+			margin-right: 20px;
+			margin-bottom: 20px;
+			height: 160px;
 		}
-
-		75 {
-			opacity: 0.75;
+		
+		.card-div {}
+		
+		.title-div {
+			font-size: 20px;
 		}
-
-		100% {
-			/* padding-bottom: 0%; */
-			opacity: 1;
+		
+		.title-div #title {}
+		
+		.details-div {
+			margin-top: 20px;
+		}
+		
+		.details-div #details {
+		
+			font-size: 14px;
+		}
+		
+		.slidegroup-enter-class {
+		
+			-webkit-animation-name: fadeInOut;
+			-webkit-animation-timing-function: ease-in-out;
+			/* -webkit-animation-iteration-count: infinite; */
+			-webkit-animation-duration: 1s;
+			-webkit-animation-direction: alternate;
+		}
+		
+		@keyframes fadeInOut {
+			0% {
+				/* padding-bottom: 100%; */
+				opacity: 0;
+			}
+		
+			50% {
+				opacity: 0.5;
+			}
+		
+			75 {
+				opacity: 0.75;
+			}
+		
+			100% {
+				/* padding-bottom: 0%; */
+				opacity: 1;
+			}
+		}
+	}
+	@media (max-width:640px) {
+		.blog-item {}
+		
+		.android-main {
+			padding-bottom: 50px;
+		}
+		
+		.card {
+			cursor: pointer;
+			margin-left: 20px;
+			margin-right: 20px;
+			margin-bottom: 20px;
+			min-height: 160px;
+		}
+		
+		.card-div {}
+		
+		.title-div {
+			font-size: 16px;
+		}
+		
+		.title-div #title {}
+		
+		.details-div {
+			margin-top: 20px;
+		}
+		
+		.details-div #details {
+		
+			font-size: 14px;
+		}
+		
+		.slidegroup-enter-class {
+		
+			-webkit-animation-name: fadeInOut;
+			-webkit-animation-timing-function: ease-in-out;
+			/* -webkit-animation-iteration-count: infinite; */
+			-webkit-animation-duration: 1s;
+			-webkit-animation-direction: alternate;
+		}
+		
+		@keyframes fadeInOut {
+			0% {
+				/* padding-bottom: 100%; */
+				opacity: 0;
+			}
+		
+			50% {
+				opacity: 0.5;
+			}
+		
+			75 {
+				opacity: 0.75;
+			}
+		
+			100% {
+				/* padding-bottom: 0%; */
+				opacity: 1;
+			}
 		}
 	}
 </style>

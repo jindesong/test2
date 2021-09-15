@@ -114,144 +114,293 @@
 </script>
 
 <style scoped>
-	.home {
+	@media (min-width:640px) {
+		.home {
 
-		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.header {
-		width: 1300px;
-		margin-left: auto;
-		margin-right: auto;
-		align-items: center;
-		position: relative;
-		display: flex;
-		height: 150px;
-	}
-
-	.profile {
-		object-fit: cover;
-		border-radius: 50%;
-		width: 100px;
-		height: 100px;
-	}
-
-	.sign {
-		position: relative;
-		padding: 20px 10px;
-		margin-left: 50px;
-
-		transition: all .3s;
-	}
-
-
-	.sign:active {
-		filter: contrast(0.9);
-	}
-
-	.sign::before,
-	.sign::after {
-		content: "";
-		position: absolute;
-		top: -10px;
-		left: -10px;
-		right: -10px;
-		bottom: -10px;
-		border: 2px solid black;
-		transition: all 2s;
-		animation: clippath 3s infinite linear;
-		border-radius: 10px;
-	}
-
-	.sign::after {
-		animation: clippath 3s infinite -1.5s linear;
-	}
-
-	@keyframes clippath {
-
-		0%,
-		100% {
-			clip-path: inset(0 0 98% 0);
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
 		}
 
-		25% {
-			clip-path: inset(0 98% 0 0);
+		.header {
+			width: 1300px;
+			margin-left: auto;
+			margin-right: auto;
+			align-items: center;
+			position: relative;
+			display: flex;
+			height: 150px;
 		}
 
-		50% {
-			clip-path: inset(98% 0 0 0);
+		.profile {
+			object-fit: cover;
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
 		}
 
-		75% {
-			clip-path: inset(0 0 0 98%);
+		.sign {
+			position: relative;
+			padding: 20px 10px;
+			margin-left: 50px;
+
+			transition: all .3s;
 		}
+
+
+		.sign:active {
+			filter: contrast(0.9);
+		}
+
+		.sign::before,
+		.sign::after {
+			content: "";
+			position: absolute;
+			top: -10px;
+			left: -10px;
+			right: -10px;
+			bottom: -10px;
+			border: 2px solid black;
+			transition: all 2s;
+			animation: clippath 3s 1 linear;
+			border-radius: 10px;
+		}
+
+		.sign::after {
+			animation: clippath 3s 1 -1.5s linear;
+		}
+
+		@keyframes clippath {
+
+			0%,
+			100% {
+				clip-path: inset(0 0 98% 0);
+			}
+
+			25% {
+				clip-path: inset(0 98% 0 0);
+			}
+
+			50% {
+				clip-path: inset(98% 0 0 0);
+			}
+
+			75% {
+				clip-path: inset(0 0 0 98%);
+			}
+		}
+
+
+		.title {
+
+			font-size: 16px;
+			font-family: Averta Regular Italic;
+		}
+
+
+		/deep/ .el-menu-item.is-active {
+			border-bottom: 2px solid #000000;
+
+		}
+
+		.bottom-container {
+			background-color: #f5f5f5;
+			width: 100%;
+			height: 100%;
+			flex-grow: 1;
+		}
+
+		.bottom {
+			margin-right: auto;
+			margin-left: auto;
+			width: 1300px;
+			height: 100%;
+			display: flex;
+
+		}
+
+		.menu {
+
+			right: 50px;
+			position: absolute;
+		}
+
+		/* .left {
+		
+				margin-top: 20px;
+				width: 300px;
+				height: 500px;
+			}
+		*/
+		/* .rowdiv {
+				margin: 20px;
+			} */
+
+		/* .left-des {
+				font-weight: 600;
+				font-size: 14px;
+			} */
+
+		.right {
+			/* margin-left: 20px;
+				margin-top: 20px;
+				width: 980px; */
+			margin-top: 20px;
+			width: 100%;
+			height: 100%;
+
+		}
+
+		/* .tag {
+				margin-top: 10px;
+				margin-right: 10px;
+			} */
 	}
 
+	@media (max-width:640px) {
+		.home {
 
-	.title {
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+		}
 
-		font-size: 16px;
-		font-family: Averta Regular Italic;
-	}
+		.header {
 
 
-	/deep/ .el-menu-item.is-active {
-		border-bottom: 2px solid #000000;
 
-	}
+			width: 100%;
+			flex-wrap: wrap;
+			align-items: center;
 
-	.bottom-container {
-		background-color: #f5f5f5;
-		width: 100%;
-		height: 100%;
-		flex-grow: 1;
-	}
+			display: flex;
 
-	.bottom {
-		margin-right: auto;
-		margin-left: auto;
-		width: 1300px;
-		height: 100%;
-		display: flex;
 
-	}
+		}
 
-	.menu {
+		.profile {
+			margin-left: 20px;
+			object-fit: cover;
+			border-radius: 50%;
+			width: 70px;
+			height: 70px;
+		}
 
-		right: 50px;
-		position: absolute;
-	}
+		.sign {
+			margin: 30px;
+			width: 200px;
+			position: relative;
+			padding: 10px 10px;
 
-	/* .left {
+			transition: all .3s;
+		}
 
-		margin-top: 20px;
-		width: 300px;
-		height: 500px;
-	}
- */
-	.rowdiv {
-		margin: 20px;
-	}
 
-	.left-des {
-		font-weight: 600;
-		font-size: 14px;
-	}
+		.sign:active {
+			filter: contrast(0.9);
+		}
 
-	.right {
-		/* margin-left: 20px;
-		margin-top: 20px;
-		width: 980px; */
-		margin-top: 20px;
-		width: 100%;
-		height: 100%;
+		.sign::before,
+		.sign::after {
+			content: "";
+			position: absolute;
+			top: -10px;
+			left: -10px;
+			right: -10px;
+			bottom: -10px;
+			border: 2px solid black;
+			transition: all 2s;
+			animation: clippath 3s 1 linear;
+			border-radius: 10px;
+		}
 
-	}
+		.sign::after {
+			animation: clippath 3s 1 -1.5s linear;
+		}
 
-	.tag {
-		margin-top: 10px;
-		margin-right: 10px;
+		@keyframes clippath {
+
+			0%,
+			100% {
+				clip-path: inset(0 0 98% 0);
+			}
+
+			25% {
+				clip-path: inset(0 98% 0 0);
+			}
+
+			50% {
+				clip-path: inset(98% 0 0 0);
+			}
+
+			75% {
+				clip-path: inset(0 0 0 98%);
+			}
+		}
+
+
+		.title {
+
+			font-size: 16px;
+			font-family: Averta Regular Italic;
+		}
+
+
+		/deep/ .el-menu-item.is-active {
+			border-bottom: 2px solid #000000;
+
+		}
+
+		.bottom-container {
+			background-color: #f5f5f5;
+			width: 100%;
+			height: 100%;
+			flex-grow: 1;
+		}
+
+		.bottom {
+			margin-right: auto;
+			margin-left: auto;
+			width: 100%;
+			height: 100%;
+			display: flex;
+
+		}
+
+		.menu {
+
+			width: 100%;
+		}
+
+		/* .left {
+		
+				margin-top: 20px;
+				width: 300px;
+				height: 500px;
+			}
+		*/
+		/* .rowdiv {
+				margin: 20px;
+			} */
+
+		/* .left-des {
+				font-weight: 600;
+				font-size: 14px;
+			} */
+
+		.right {
+			/* margin-left: 20px;
+				margin-top: 20px;
+				width: 980px; */
+			margin-top: 20px;
+			width: 100%;
+			height: 100%;
+
+		}
+
+		/* .tag {
+				margin-top: 10px;
+				margin-right: 10px;
+			} */
 	}
 </style>
